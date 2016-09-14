@@ -1,0 +1,8 @@
+{
+    "image_name": "ubuntu-server-16.04",
+    "flavor_name": "m2.tiny",
+    "volume_size": 5,
+    "new_volume_size": 10,
+    "iterations": 1,
+    "concurrent_server_builds": 10
+}

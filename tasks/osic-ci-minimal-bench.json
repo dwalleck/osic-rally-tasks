@@ -1,0 +1,69 @@
+{% set flavor_name = flavor_name or "justright" %}
+{% set image_name = image_name or "ubuntu" %}
+{% set volume_size = volume_size or 10 %}
+{% set concurrent_server_builds = concurrent_server_builds or 5 %}
+{% set iterations = iterations or 5 %}
+{% set availability_zone = availability_zone or "nova" %}
+
+{
+    "NovaServers.boot_and_delete_server": [
+        {
+
+            "args": {
+                "flavor": {
+                    "name": "{{flavor_name}}"
+                },
+                "image": {
+                    "name": "{{image_name}}"
+                },
+                "force_delete": false,
+            },
+            "runner": {
+                "type": "constant",
+                "times": {{iterations}},
+                "concurrency": 1
+            },
+            "context": { }
+        },
+        {
+            "args": {
+                "flavor": {
+                    "name": "{{flavor_name}}"
+                },
+                "image": {
+                    "name": "{{image_name}}"
+                },
+                "force_delete": false
+            },
+            "runner": {
+                "type": "constant",
+                "times": {{concurrent_server_builds}},
+                "concurrency": {{concurrent_server_builds}}
+            },
+            "context": { }
+        }
+    ],
+    "CinderVolumes.create_and_attach_volume": [
+        {
+            "args": {
+                "size": {{volume_size}},
+                "image": {
+                    "name": "{{image_name}}"
+                },
+                "flavor": {
+                    "name": "{{flavor_name}}"
+                },
+                "create_volume_params": {
+                    "availability_zone": "{{availability_zone}}"
+                }
+            },
+            "runner": {
+                "type": "constant",
+                "times": {{iterations}},
+                "concurrency": 1
+            },
+            "context": {
+            }
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "image_name": "Ubuntu 16.04 LTS (Xenial Xerus) (PVHVM)",
+    "flavor_name": "general1-1",
+    "volume_size": 100,
+    "new_volume_size": 110,
+    "iterations": 10,
+    "concurrent_server_builds": 25
+}

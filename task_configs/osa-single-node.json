@@ -1,0 +1,8 @@
+{
+    "image_name": "cirros",
+    "flavor_name": "m1.tiny",
+    "volume_size": 5,
+    "new_volume_size": 10,
+    "iterations": 5,
+    "concurrent_server_builds": 5
+}
