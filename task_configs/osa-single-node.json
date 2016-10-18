@@ -1,6 +1,6 @@
 {
-    "image_name": "cirros",
-    "flavor_name": "m1.tiny",
+    "image_name": "ubuntu",
+    "flavor_name": "justright",
     "volume_size": 5,
     "new_volume_size": 10,
     "iterations": 5,
