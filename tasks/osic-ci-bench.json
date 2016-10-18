@@ -164,22 +164,5 @@
             },
             "context": { }
         }
-    ],
-    "KeystoneBasic.authenticate_user_and_validate_token": [
-        {
-            "args": {},
-            "runner": {
-                "type": "constant",
-                "times": 100,
-                "concurrency": 100
-            },
-            "sla": {
-                "failure_rate": {
-                    "max": 0
-                }
-            }
-        }
     ]
-
-
 }
